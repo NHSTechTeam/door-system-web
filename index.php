@@ -1,0 +1,57 @@
+<?php
+$title = "Dashboard";
+
+ob_start();
+?>
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{ day }}</h3>
+                    <p>Unlocks Today</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-door-open"></i>
+                </div>
+                <a href="/logs?success=true&time=-1d" class="small-box-footer">
+                    More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ week }}</h3>
+                    <p>Unlocks This Week</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-calendar-week"></i>
+                </div>
+                <a href="/logs?success=true&time=-7d" class="small-box-footer">
+                    More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>{{ badtries }}</h3>
+                    <p>Failed Attempts Today</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-hand"></i>
+                </div>
+                <a href="logs?success=false&time=-1d" class="small-box-footer">
+                    More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+$content = ob_get_clean();
+
+include 'base.php';

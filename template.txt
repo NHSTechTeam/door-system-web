@@ -1,0 +1,12 @@
+<?php
+$title = "--titlehere--";
+
+ob_start();
+?>
+
+--content--here--
+
+<?php
+$content = ob_get_clean();
+
+include 'base.php';
