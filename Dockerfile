@@ -16,9 +16,9 @@ RUN a2enmod rewrite
 RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
     && docker-php-ext-install ldap zip
 
-# Install MQTT client via PECL
-RUN pecl install mosquitto \
-    && docker-php-ext-enable mosquitto
+## Install MQTT client via PECL
+#RUN pecl install mosquitto \
+#    && docker-php-ext-enable mosquitto
 
 # Copy app
 COPY . /var/www/html/
