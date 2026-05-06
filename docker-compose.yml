@@ -1,0 +1,7 @@
+services:
+  nhstt-door-system-web
+    build: .
+    ports:
+      - "3004:80"
+    volumes:
+      - .:/var/www/html
