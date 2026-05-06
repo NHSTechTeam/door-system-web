@@ -14,7 +14,7 @@ if (isset($_SESSION['username'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
-  <title>Tech Team Member Portal</title>
+  <title>Tech Team | Login</title>
 </head>
 
 <body class="text-center bg-dark">
