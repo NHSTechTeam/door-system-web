@@ -1,6 +1,23 @@
 <?php
 $title = "Dashboard";
+require_once 'db.php';
+try {
+    // Count failed attempts in the last 1 day
+    $stmt = $db->query("SELECT COUNT(*) FROM access_log WHERE success = 0 AND timestamp >= NOW() - INTERVAL 1 DAY");
+    $bad = $stmt->fetchColumn();
 
+    // Count successful attempts in the last 1 day
+    $stmt = $db->query("SELECT COUNT(*) FROM access_log WHERE success = 1 AND timestamp >= NOW() - INTERVAL 1 DAY");
+    $day = $stmt->fetchColumn();
+
+    // Count successful attempts in the last 7 days
+    $stmt = $db->query("SELECT COUNT(*) FROM access_log WHERE success = 1 AND timestamp >= NOW() - INTERVAL 7 DAY");
+    $week = $stmt->fetchColumn();
+
+    // Now you can echo or use $bad, $day, and $week
+} catch (PDOException $e) {
+    die("Query failed: " . $e->getMessage());
+}
 ob_start();
 ?>
 
@@ -9,7 +26,7 @@ ob_start();
         <div class="col-md-4">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>{{ day }}</h3>
+                    <h3><?= $day ?></h3>
                     <p>Unlocks Today</p>
                 </div>
                 <div class="icon">
@@ -23,7 +40,7 @@ ob_start();
         <div class="col-md-4">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>{{ week }}</h3>
+                    <h3><?= $week ?></h3>
                     <p>Unlocks This Week</p>
                 </div>
                 <div class="icon">
@@ -37,7 +54,7 @@ ob_start();
         <div class="col-md-4">
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>{{ badtries }}</h3>
+                    <h3><?= $bad ?></h3>
                     <p>Failed Attempts Today</p>
                 </div>
                 <div class="icon">

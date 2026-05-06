@@ -1,0 +1,36 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+
+/* Header near top */
+.header {
+  padding-top: 20px;
+}
+
+.header img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Message centered on the screen */
+.center {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+#status-message {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
