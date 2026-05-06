@@ -4,7 +4,6 @@ $tabs = [
     ['name' => 'Users', 'icon' => 'fas fa-users', 'path' => '/users'],
     ['name' => 'Logs', 'icon' => 'fas fa-table-list', 'path' => '/logs'],
 ];
-session_start();
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 ?>
 
