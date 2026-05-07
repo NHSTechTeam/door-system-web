@@ -1,11 +1,13 @@
 version: "3.9"
 
 services:
-  app:
+  nhstt-door-system-web:
     build: ./web
     ports:
       - "3004:80"
     restart: unless-stopped
+    networks:
+      - nhstt-door-system
     environment:
       DB_HOST: 192.168.1.21
       DB_NAME: door_dev
@@ -16,3 +18,13 @@ services:
       MQTT_URL: "mqtt://192.168.1.21:9001/mqtt"
       MQTT_USERNAME: "admin"
       MQTT_PASSWORD: "superce11"
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=America/New_York
+    ports:
+      - "1880:1880"
+    networks:
+      - nhstt-door-system
+    volumes:
+      - ./nodered/data:/data
