@@ -9,7 +9,7 @@ function generate_totp_secret($length = 32){
     return $secret;
 }
 ob_start();
-if ($_GET['user']) {
+if (isset($_GET['user'])) {
   $stmt = $db->prepare("SELECT * FROM users WHERE id = :id");
   $stmt->bindParam(':id', $_GET['user'], PDO::PARAM_INT);
   $stmt->execute();

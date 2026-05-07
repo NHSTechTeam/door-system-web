@@ -2,10 +2,13 @@ messageBox = document.getElementById("message");
 statusMessage = document.getElementById("status-message");
 originalMessage = messageBox.innerText;
 
+//make sure we are actually getting these passed through
 console.log(mqtt_url);
 console.log(mqtt_username);
 console.log(mqtt_password);
 
+
+//WARNING: These variable should be set in index.php and should not be written here or there. They are loaded from env vars in docker
 const client = mqtt.connect(mqtt_url, {username: mqtt_username, password: mqtt_password});
 
 client.on("connect", () => {
