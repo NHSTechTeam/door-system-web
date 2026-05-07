@@ -35,6 +35,11 @@ session_start();
     <div id="status-message">
         There is an error that may prevent access. (MQTT Disconnected)
     </div>
+    <script>
+        const mqtt_url = "<?= getenv('MQTT_URL'); ?>";
+        const mqtt_username = "<?= getenv('MQTT_USERNAME'); ?>";
+        const mqtt_password = "<?= getenv('MQTT_PASSWORD'); ?>";
+    </script>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

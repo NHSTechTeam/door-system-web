@@ -1,7 +1,12 @@
 messageBox = document.getElementById("message");
 statusMessage = document.getElementById("status-message");
 originalMessage = messageBox.innerText;
-const client = mqtt.connect("mqtt://192.168.1.21:9001/mqtt", {username: "admin", password: "superce11"});
+
+console.log(mqtt_url);
+console.log(mqtt_username);
+console.log(mqtt_password);
+
+const client = mqtt.connect(mqtt_url, {username: mqtt_username, password: mqtt_password});
 
 client.on("connect", () => {
   console.log("connected");

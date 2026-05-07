@@ -11,3 +11,8 @@ services:
       DB_NAME: door_dev
       DB_USER: root
       DB_PASS: Superce11ular!
+      LDAP_HOST: "ldaps://192.168.1.251"
+      LDAP_DN: "DC=techteam,DC=local"
+      MQTT_URL: "mqtt://192.168.1.21:9001/mqtt"
+      MQTT_USERNAME: "admin"
+      MQTT_PASSWORD: "superce11"

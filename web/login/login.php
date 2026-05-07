@@ -1,13 +1,13 @@
 <?php
+
+$ldap_host = getenv('LDAP_HOST');
+$ldap_dn = getenv('LDAP_DN');
 session_start();
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $ldap_host = 'ldaps://192.168.1.251';
-    $ldap_port = 389;
-    putenv('LDAPTLS_REQCERT=never');
-    $ldap_dn = 'DC=techteam,DC=local'; // Base DN
+    putenv('LDAPTLS_REQCERT=never'); //ignore the cert check
     $ldap_user = $_POST['username'];
     $ldap_pass = $_POST['password'];
 
