@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   nhstt-door-system-web:
     build: ./web
@@ -28,6 +26,10 @@ services:
       - nhstt-door-system
     volumes:
       - ./nodered/data:/data
+    #This allows the container to talk to the Arduino for RFID and the USB relay
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/hidraw0:/dev/hidraw0"
 
 networks:
   nhstt-door-system:
