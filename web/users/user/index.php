@@ -70,7 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
   </div>
   <div class="card-footer clearfix">
-    <button type="button" class="btn btn-danger" onclick="fetch('/users/user/delete.php?user=<?= $_GET['user']?>').then(r=>window.location.href='/users')">Delete User</button>
+    <?php if (isset($_GET['user'])): ?>
+      <button type="button" class="btn btn-danger" onclick="fetch('/users/user/delete.php?user=<?= $_GET['user']?>').then(r=>window.location.href='/users')">Delete User</button>
+    <?php endif; ?>
     <div class="float-right">
       <a href="/users" class="btn btn-secondary">Cancel</a>
       <button type="submit" form="userForm" class="btn btn-primary">Save</button>
