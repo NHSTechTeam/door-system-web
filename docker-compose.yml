@@ -30,4 +30,4 @@ services:
       - ./nodered/data:/data
 
 networks:
-  - nhstt-door-system
+  nhstt-door-system:
