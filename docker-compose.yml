@@ -31,5 +31,10 @@ services:
       - "/dev/ttyACM0:/dev/ttyACM0"
       - "/dev/hidraw0:/dev/hidraw0"
 
+    #permission stuff b/c its locked down by default
+    group_add:
+      - "20"   # replace with your dialout GID
+    privileged: true
+
 networks:
   nhstt-door-system:
