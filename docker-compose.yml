@@ -28,3 +28,6 @@ services:
       - nhstt-door-system
     volumes:
       - ./nodered/data:/data
+
+networks:
+  - nhstt-door-system
