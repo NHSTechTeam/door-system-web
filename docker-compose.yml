@@ -1,5 +1,6 @@
 services:
   nhstt-door-system-web:
+    container-name: door-system-web
     build: ./web
     ports:
       - "3004:80"
@@ -18,6 +19,7 @@ services:
       MQTT_PASSWORD: "superce11"
   node-red:
     image: nodered/node-red:latest
+    container-name: node-red
     environment:
       - TZ=America/New_York
     ports:
@@ -37,6 +39,7 @@ services:
     privileged: true
   mqtt:
     image: eclipse-mosquitto:2
+    container-name: mqtt
     restart: unless-stopped
     ports:
       - "1883:1883"
@@ -44,10 +47,15 @@ services:
       - nhstt-door-system
     volumes:
       - ./mqtt/config:/mosquitto/config
-      - ./mqtt/data:/mosquitto/data
     environment:
       MQTT_USERNAME: "admin"
       MQTT_PASSWORD: "superce11"
+    entrypoint: >
+      sh -c "
+      mosquitto_passwd -b -c /mosquitto/config/passwords.txt
+      $$MQTT_USERNAME $$MQTT_PASSWORD &&
+      exec mosquitto -c /mosquitto/config/mosquitto.conf
+      "
 
 networks:
   nhstt-door-system:
