@@ -35,6 +35,26 @@ services:
     group_add:
       - "20"   # replace with your dialout GID
     privileged: true
+  mqtt:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    networks:
+      - nhstt-door-system
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    environment:
+      MQTT_USERNAME: "admin"
+      MQTT_PASSWORD: "superce11"
+    entrypoint: >
+      sh -c "
+      mosquitto_passwd -b -c /mosquitto/config/passwords.txt
+      $$MQTT_USERNAME $$MQTT_PASSWORD &&
+      exec mosquitto -c /mosquitto/config/mosquitto.conf
+      "
 
 networks:
   nhstt-door-system:
