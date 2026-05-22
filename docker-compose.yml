@@ -42,8 +42,8 @@ services:
       - "1883"
     networks:
       - nhstt-door-system
-    #volumes:
-    #  - ./mqtt/config:/mosquitto/config
+    volumes:
+      - ./mqtt/config:/mosquitto/config
   gui:
     image: debian:latest
     environment:
