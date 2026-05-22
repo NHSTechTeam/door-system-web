@@ -24,4 +24,4 @@ chromium \
     --no-sandbox \
     --disable-gpu \
     --kiosk \
-    https://google.com
+    http://localhost:3004/kiosk/
