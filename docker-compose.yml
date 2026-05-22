@@ -14,8 +14,6 @@ services:
       LDAP_HOST: "ldaps://192.168.1.251"
       LDAP_DN: "DC=techteam,DC=local"
       MQTT_URL: "mqtt://mqtt:9001/mqtt" # 'mqtt' is from the host name below, because they are on the same docker network
-      MQTT_USERNAME: "admin"
-      MQTT_PASSWORD: "superce11"
   node-red:
     image: nodered/node-red:latest
     environment:
