@@ -45,17 +45,15 @@ services:
     volumes:
       - ./mqtt/config:/mosquitto/config
   gui:
-    image: debian:latest
+    build: ./gui
     networks:
       - nhstt-door-system
     environment:
       DISPLAY: :0
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./gui/run.sh:/run.sh
     stdin_open: true
     tty: true
-    entrypoint: ["/bin/bash", "/run.sh"]
 
 networks:
   nhstt-door-system:
