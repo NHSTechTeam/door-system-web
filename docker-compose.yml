@@ -45,19 +45,12 @@ services:
     #volumes:
     #  - ./mqtt/config:/mosquitto/config
   gui:
-
     image: ubuntu:24.04
-
     environment:
-
-      DISPLAY: ${DISPLAY}
-
+      DISPLAY: :0
     volumes:
-
       - /tmp/.X11-unix:/tmp/.X11-unix
-
     stdin_open: true
-
     tty: true
 
 networks:
