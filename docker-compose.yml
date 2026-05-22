@@ -45,7 +45,7 @@ services:
     #volumes:
     #  - ./mqtt/config:/mosquitto/config
   gui:
-    image: ubuntu:24.04
+    image: debian:latest
     environment:
       DISPLAY: :0
     volumes:
