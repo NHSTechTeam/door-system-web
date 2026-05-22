@@ -44,6 +44,21 @@ services:
       - nhstt-door-system
     #volumes:
     #  - ./mqtt/config:/mosquitto/config
+  gui:
+
+    image: ubuntu:24.04
+
+    environment:
+
+      DISPLAY: ${DISPLAY}
+
+    volumes:
+
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+    stdin_open: true
+
+    tty: true
 
 networks:
   nhstt-door-system:
