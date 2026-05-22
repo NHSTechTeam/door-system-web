@@ -46,6 +46,8 @@ services:
       - ./mqtt/config:/mosquitto/config
   gui:
     image: debian:latest
+    networks:
+      - nhstt-door-system
     environment:
       DISPLAY: :0
     volumes:

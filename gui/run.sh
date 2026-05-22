@@ -24,4 +24,4 @@ chromium \
     --no-sandbox \
     --disable-gpu \
     --kiosk \
-    http://localhost:3004/kiosk/
+    http://door-system-web-nhstt-door-system-web/kiosk/
