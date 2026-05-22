@@ -37,8 +37,8 @@ session_start();
     </div>
     <script>
         const mqtt_url = "<?= getenv('MQTT_URL'); ?>";
-        const mqtt_username = "<?= getenv('MQTT_USERNAME'); ?>";
-        const mqtt_password = "<?= getenv('MQTT_PASSWORD'); ?>";
+        //const mqtt_username = "<?= getenv('MQTT_USERNAME'); ?>";
+        //const mqtt_password = "<?= getenv('MQTT_PASSWORD'); ?>";
     </script>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
