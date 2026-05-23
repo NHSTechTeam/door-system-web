@@ -63,7 +63,8 @@ services:
   adminer:
     image: adminer
     restart: always
-    networks: nhstt-door-system
+    networks:
+      - nhstt-door-system
     ports:
       - 8080:8080
 
