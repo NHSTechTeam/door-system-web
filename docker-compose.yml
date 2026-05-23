@@ -52,6 +52,20 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     stdin_open: true
     tty: true
+  db:
+    image: mariadb
+    restart: always
+    networks:
+      - nhstt-door-system
+    environment:
+      MARIADB_ROOT_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    networks: nhstt-door-system
+    ports:
+      - 8080:8080
 
 networks:
   nhstt-door-system:
