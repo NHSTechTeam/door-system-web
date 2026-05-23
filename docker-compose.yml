@@ -59,7 +59,7 @@ services:
       - nhstt-door-system
     environment:
       MARIADB_ROOT_PASSWORD: example
-    volumess:
+    volumes:
       - ./database/data:/var/lib/mysql
 
   adminer:
