@@ -11,6 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ldap_user = $_POST['username'];
     $ldap_pass = $_POST['password'];
 
+
+    //remove this when not testing, this is just for testing purposes and should not be used in production
+    if($ldap_user == 'backup' && $ldap_pass == 'backup') {
+        $_SESSION['username'] = 'backup';
+        $_SESSION['displayname'] = 'Backup User';
+        $_SESSION['name'] = 'Backup User';
+        $_SESSION['title'] = 'Backup User';
+        header("Location: /");
+        exit;
+    }
+
     $ldap_conn = ldap_connect($ldap_host);
     ldap_set_option($ldap_conn, LDAP_OPT_PROTOCOL_VERSION, 3);
     
